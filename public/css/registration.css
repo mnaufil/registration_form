@@ -1,0 +1,44 @@
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card {
+    border-radius: 15px;
+    background: #ffffff;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.btn-primary {
+    background-color: #764ba2;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #5a3b85;
+}
+.form-label {
+    font-weight: bold;
+    color: #333;
+}
+.text-muted {
+    font-size: 14px;
+}
+.strength-meter {
+    height: 8px;
+    width: 100%;
+    background: #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+    position: relative;
+}
+.strength-bar {
+    height: 100%;
+    width: 0;
+    transition: width 0.3s ease-in-out;
+    border-radius: 5px;
+}
+.weak { background: red; width: 25%; }
+.medium { background: orange; width: 50%; }
+.strong { background: green; width: 100%; }
