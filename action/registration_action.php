@@ -1,11 +1,6 @@
 <?php
-session_start(); // ✅ Always at the top
+session_start(); 
 
-function browse($var){
-    echo "<script>
-            alert('$var')
-            </script>";
-}
 include "../config/database.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim($_POST['name']);
@@ -58,13 +53,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         move_uploaded_file($_FILES["profile_image"]["tmp_name"], $profile_image);
     }
 
-    // Insert into Database
+
     try {
-        browse($profile_image);
-        error_log('$profile_image - '. $profile_image, 3, "../logs/error.log");
         $stmt = $pdo->prepare("INSERT INTO users (`name`, `email`, `password`, profile_image) VALUES (?, ?, ?, ?)");
         $stmt->execute([$name, $email, $hashed_password, $profile_image]);
-        
         $_SESSION['success'] = "Registration successful. Please login.";
         header("Location: ../login.php");
         exit();
